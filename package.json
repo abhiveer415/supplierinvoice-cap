@@ -24,12 +24,6 @@
   },
   "cds": {
     "requires": {
-      "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "url": ":memory:"
-        }
-      },
       "API_SUPPLIERINVOICE_PROCESS_SRV": {
         "kind": "odata",
         "model": "srv/external/API_SUPPLIERINVOICE_PROCESS_SRV",
