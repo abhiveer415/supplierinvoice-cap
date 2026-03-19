@@ -24,13 +24,19 @@
   },
   "cds": {
     "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": ":memory:"
+        }
+      },
       "API_SUPPLIERINVOICE_PROCESS_SRV": {
         "kind": "odata",
         "model": "srv/external/API_SUPPLIERINVOICE_PROCESS_SRV",
         "credentials": {
           "destination": "API_SUPPLIERINVOICE_PROCESS_SRV",
           "path": "/sap/opu/odata/sap/API_SUPPLIERINVOICE_PROCESS_SRV/",
-          "url": "https://hmf2023.sap.hana.ondemand.com:44300",
+          "url": "http://mygohanafun2023:8000",
           "authentication": "BasicAuthentication",
           "forwardAuthToken": true,
           "proxy": "sap-cloud-connectivity-proxy"

@@ -38,8 +38,8 @@ resources:
                 ProxyType: Internet
                 HTML5.DynamicDestination: true
                 HTML5.ForwardAuthToken: true
-                # On-premise configuration - use actual Location ID from Cloud Connector
-                SAP.CloudConnector.LocationId: "HMF2023"
+                # On-premise configuration - use actual Location ID from SAP backend
+                SAP.CloudConnector.LocationId: "MYGO-BTP-BAS"
                 WebIDEUsage: "odata_abap"
                 WebIDESystem: "S4H"
                 WebIDEAdditionalData: "SystemName=HMF_2023;SystemType=OnPremise"

@@ -21,12 +21,12 @@ This guide helps you connect your CAP application in SAP BAS to your on-premise 
 2. Add new mapping for HMF_2023:
    ```
    Backend Type: SAP NetWeaver
-   Virtual Host: hmf2023.sap.hana.ondemand.com
-   Virtual Port: 44300
+   Virtual Host: mygohanafun2023
+   Virtual Port: 8000
    Internal Host: <actual-hmf2023-host>
-   Internal Port: 44300
-   Protocol: HTTPS
-   Location ID: HMF2023
+   Internal Port: 8000
+   Protocol: HTTP
+   Location ID: MYGO-BTP-BAS
    ```
 3. **Principal Propagation**: Enable if needed
 4. **Save and Start** the connection
@@ -40,7 +40,7 @@ This guide helps you connect your CAP application in SAP BAS to your on-premise 
    Name: API_SUPPLIERINVOICE_PROCESS_SRV
    Type: HTTP
    Description: Supplier Invoice Processing Service - HMF_2023
-   URL: https://hmf2023.sap.hana.ondemand.com:44300/sap/opu/odata/sap/API_SUPPLIERINVOICE_PROCESS_SRV/
+   URL: http://mygohanafun2023:8000/sap/opu/odata/sap/API_SUPPLIERINVOICE_PROCESS_SRV/
    Proxy Type: OnPremise
    Authentication: BasicAuthentication
    User: <your-hmf2023-user>
@@ -52,7 +52,7 @@ This guide helps you connect your CAP application in SAP BAS to your on-premise 
 WebIDEUsage: odata_abap
 WebIDESystem: S4H
 WebIDEAdditionalData: SystemName=HMF_2023;SystemType=OnPremise
-SAP.CloudConnector.LocationId: HMF2023
+SAP.CloudConnector.LocationId: MYGO-BTP-BAS
 HTML5.DynamicDestination: true
 HTML5.ForwardAuthToken: true
 ```
