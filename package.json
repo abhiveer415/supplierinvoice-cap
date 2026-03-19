@@ -33,7 +33,7 @@
             "url": ":memory:"
           }
         },
-        "supplierinvoiceprocess": {
+        "API_SUPPLIERINVOICE_PROCESS_SRV": {
           "kind": "odata-v2",
           "model": "srv/external/API_SUPPLIERINVOICE_PROCESS_SRV",
           "credentials": {
@@ -42,7 +42,7 @@
           }
         }
       },
-      "supplierinvoiceprocess": {
+      "API_SUPPLIERINVOICE_PROCESS_SRV": {
         "kind": "odata-v2",
         "model": "srv/external/API_SUPPLIERINVOICE_PROCESS_SRV",
         "credentials": {
