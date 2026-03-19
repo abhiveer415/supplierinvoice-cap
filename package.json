@@ -29,7 +29,21 @@
         "model": "srv/external/API_SUPPLIERINVOICE_PROCESS_SRV",
         "credentials": {
           "destination": "API_SUPPLIERINVOICE_PROCESS_SRV",
-          "path": "/sap/opu/odata/sap/API_SUPPLIERINVOICE_PROCESS_SRV/"
+          "path": "/sap/opu/odata/sap/API_SUPPLIERINVOICE_PROCESS_SRV/",
+          "url": "https://hmf2023.sap.hana.ondemand.com:44300",
+          "authentication": "BasicAuthentication",
+          "forwardAuthToken": true,
+          "proxy": "sap-cloud-connectivity-proxy"
+        }
+      },
+      "[production]": {
+        "API_SUPPLIERINVOICE_PROCESS_SRV": {
+          "kind": "odata",
+          "model": "srv/external/API_SUPPLIERINVOICE_PROCESS_SRV",
+          "credentials": {
+            "destination": "API_SUPPLIERINVOICE_PROCESS_SRV",
+            "path": "/sap/opu/odata/sap/API_SUPPLIERINVOICE_PROCESS_SRV/"
+          }
         }
       }
     }

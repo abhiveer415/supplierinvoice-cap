@@ -38,6 +38,11 @@ resources:
                 ProxyType: Internet
                 HTML5.DynamicDestination: true
                 HTML5.ForwardAuthToken: true
+                # On-premise configuration - use actual Location ID from Cloud Connector
+                SAP.CloudConnector.LocationId: "HMF2023"
+                WebIDEUsage: "odata_abap"
+                WebIDESystem: "S4H"
+                WebIDEAdditionalData: "SystemName=HMF_2023;SystemType=OnPremise"
             existing_destinations_policy: update
 
   - name: supplierinvoice-cap-uaa
@@ -71,3 +76,9 @@ resources:
               - $XSAPPNAME.Display
               - $XSAPPNAME.Edit
               - $XSAPPNAME.Delete
+
+  - name: supplierinvoice-cap-connectivity
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: lite
+      service: connectivity
