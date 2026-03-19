@@ -1,0 +1,10 @@
+node_modules/
+.env
+gen/
+dist/
+mta_archives/
+*.mtar
+.DS_Store
+.vscode/
+.idea/
+*.log

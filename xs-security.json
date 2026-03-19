@@ -1,0 +1,97 @@
+{
+  "xsappname": "supplierinvoice-cap",
+  "tenant-mode": "dedicated",
+  "description": "Security configuration for Supplier Invoice Processing CAP Application",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Display",
+      "description": "Display supplier invoices"
+    },
+    {
+      "name": "$XSAPPNAME.Edit", 
+      "description": "Edit supplier invoices"
+    },
+    {
+      "name": "$XSAPPNAME.Delete",
+      "description": "Delete supplier invoices"
+    },
+    {
+      "name": "finance_role",
+      "description": "Finance user role"
+    },
+    {
+      "name": "finance_manager_role",
+      "description": "Finance manager role"
+    },
+    {
+      "name": "admin_role",
+      "description": "Administrator role"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Viewer",
+      "description": "View supplier invoices",
+      "scope-references": [
+        "$XSAPPNAME.Display",
+        "uaa.user"
+      ]
+    },
+    {
+      "name": "Editor", 
+      "description": "Edit supplier invoices",
+      "scope-references": [
+        "$XSAPPNAME.Display",
+        "$XSAPPNAME.Edit",
+        "uaa.user"
+      ]
+    },
+    {
+      "name": "Finance_User",
+      "description": "Finance user access",
+      "scope-references": [
+        "$XSAPPNAME.Display",
+        "$XSAPPNAME.Edit", 
+        "finance_role",
+        "uaa.user"
+      ]
+    },
+    {
+      "name": "Finance_Manager",
+      "description": "Finance manager access",
+      "scope-references": [
+        "$XSAPPNAME.Display",
+        "$XSAPPNAME.Edit",
+        "$XSAPPNAME.Delete",
+        "finance_role",
+        "finance_manager_role",
+        "uaa.user"
+      ]
+    },
+    {
+      "name": "Admin",
+      "description": "Administrator access",
+      "scope-references": [
+        "$XSAPPNAME.Display",
+        "$XSAPPNAME.Edit",
+        "$XSAPPNAME.Delete",
+        "finance_role",
+        "finance_manager_role", 
+        "admin_role",
+        "uaa.user"
+      ]
+    }
+  ],
+  "attributes": [
+    {
+      "name": "cost-center",
+      "description": "Cost center restriction",
+      "valueType": "string"
+    },
+    {
+      "name": "company-code",
+      "description": "Company code restriction", 
+      "valueType": "string"
+    }
+  ]
+}

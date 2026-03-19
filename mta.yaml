@@ -1,0 +1,73 @@
+ID: supplierinvoice-cap
+_schema-version: '3.1'
+version: 1.0.0
+description: SAP CAP application for Supplier Invoice Processing
+parameters:
+  deploy-id: '${deploy-id}'
+  enable-parallel-deployments: true
+
+modules:
+  - name: supplierinvoice-cap-srv
+    type: nodejs
+    path: srv
+    parameters:
+      buildpack: nodejs_buildpack
+    provides:
+      - name: srv-api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: supplierinvoice-cap-destination
+      - name: supplierinvoice-cap-uaa
+
+resources:
+  - name: supplierinvoice-cap-destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: lite
+      service: destination
+      config:
+        HTML5Runtime_enabled: true
+        init_data:
+          instance:
+            destinations:
+              - Name: API_SUPPLIERINVOICE_PROCESS_SRV
+                URL: ${service-url}
+                Authentication: OAuth2UserTokenExchange
+                Type: HTTP
+                ProxyType: Internet
+                HTML5.DynamicDestination: true
+                HTML5.ForwardAuthToken: true
+            existing_destinations_policy: update
+
+  - name: supplierinvoice-cap-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: application
+      service: xsuaa
+      config:
+        xsappname: supplierinvoice-cap
+        tenant-mode: dedicated
+        scopes:
+          - name: $XSAPPNAME.Display
+            description: Display supplier invoices
+          - name: $XSAPPNAME.Edit
+            description: Edit supplier invoices
+          - name: $XSAPPNAME.Delete
+            description: Delete supplier invoices
+        role-templates:
+          - name: Viewer
+            description: View supplier invoices
+            scope-references:
+              - $XSAPPNAME.Display
+          - name: Editor
+            description: Edit supplier invoices
+            scope-references:
+              - $XSAPPNAME.Display
+              - $XSAPPNAME.Edit
+          - name: Admin
+            description: Admin access to supplier invoices
+            scope-references:
+              - $XSAPPNAME.Display
+              - $XSAPPNAME.Edit
+              - $XSAPPNAME.Delete
