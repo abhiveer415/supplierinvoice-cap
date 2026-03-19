@@ -96,15 +96,8 @@ module.exports = cds.service.impl(function () {
             console.log(`User ${user} has limited access to invoices`)
         }
         
-        // Business Rule: Apply default filters if none specified
-        if (!req.query.SELECT.where && req.user) {
-            // Only show invoices from last 2 years for non-admin users
-            if (!hasRole(req.user, 'admin_role')) {
-                const twoYearsAgo = new Date()
-                twoYearsAgo.setFullYear(twoYearsAgo.getFullYear() - 2)
-                req.query.where({ PostingDate: { '>=': twoYearsAgo.toISOString() } })
-            }
-        }
+        // REMOVED: Date filtering that was causing database queries
+        // External service handles its own filtering
     })
 
     // BEFORE READ - Authorization for invoice items
