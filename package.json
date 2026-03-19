@@ -24,26 +24,26 @@
   },
   "cds": {
     "requires": {
+      "[development]": {
+        "API_SUPPLIERINVOICE_PROCESS_SRV": {
+          "kind": "odata",
+          "model": "srv/external/API_SUPPLIERINVOICE_PROCESS_SRV",
+          "credentials": {
+            "url": "http://mygohanafun2023:8000",
+            "destination": "API_SUPPLIERINVOICE_PROCESS_SRV",
+            "path": "/sap/opu/odata/sap/API_SUPPLIERINVOICE_PROCESS_SRV/",
+            "authentication": "BasicAuthentication",
+            "forwardAuthToken": true,
+            "proxy": "sap-cloud-connectivity-proxy"
+          }
+        }
+      },
       "API_SUPPLIERINVOICE_PROCESS_SRV": {
         "kind": "odata",
         "model": "srv/external/API_SUPPLIERINVOICE_PROCESS_SRV",
         "credentials": {
           "destination": "API_SUPPLIERINVOICE_PROCESS_SRV",
-          "path": "/sap/opu/odata/sap/API_SUPPLIERINVOICE_PROCESS_SRV/",
-          "url": "http://mygohanafun2023:8000",
-          "authentication": "BasicAuthentication",
-          "forwardAuthToken": true,
-          "proxy": "sap-cloud-connectivity-proxy"
-        }
-      },
-      "[production]": {
-        "API_SUPPLIERINVOICE_PROCESS_SRV": {
-          "kind": "odata",
-          "model": "srv/external/API_SUPPLIERINVOICE_PROCESS_SRV",
-          "credentials": {
-            "destination": "API_SUPPLIERINVOICE_PROCESS_SRV",
-            "path": "/sap/opu/odata/sap/API_SUPPLIERINVOICE_PROCESS_SRV/"
-          }
+          "path": "/sap/opu/odata/sap/API_SUPPLIERINVOICE_PROCESS_SRV/"
         }
       }
     }
