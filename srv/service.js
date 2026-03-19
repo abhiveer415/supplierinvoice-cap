@@ -27,21 +27,24 @@ module.exports = cds.service.impl(function () {
             req.reject(400, 'Invoice gross amount must be greater than 0')
         }
         
-        // Business Rule: Required fields validation
-        if (!invoice.CompanyCode) {
-            req.reject(400, 'Company Code is required')
-        }
-        
+        // Business Rule: Document currency is required
         if (!invoice.DocumentCurrency) {
-            req.reject(400, 'Document Currency is required')
+            req.reject(400, 'Document currency is required')
         }
         
-        // Business Rule: Posting date cannot be in the future
-        if (new Date(invoice.PostingDate) > new Date()) {
-            req.reject(400, 'Posting date cannot be in the future')
+        // Business Rule: Supplier is required
+        if (!invoice.Supplier) {
+            req.reject(400, 'Supplier is required')
         }
         
-        console.log(`Validating supplier invoice: ${invoice.SupplierInvoice}`)
+        // Business Rule: Company code is required
+        if (!invoice.CompanyCode) {
+            req.reject(400, 'Company code is required')
+        }
+        
+        // For external service, we can't easily check if invoice already exists
+        // The external service will handle duplicate validation
+        console.log(`Creating invoice ${invoice.SupplierInvoice}-${invoice.FiscalYear} for company ${invoice.CompanyCode}`)
     })
 
     // BEFORE UPDATE - Additional validations for updates
