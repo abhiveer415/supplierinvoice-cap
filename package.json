@@ -33,25 +33,21 @@
             "url": ":memory:"
           }
         },
-        "API_SUPPLIERINVOICE_PROCESS_SRV": {
-          "kind": "odata",
+        "supplierinvoiceprocess": {
+          "kind": "odata-v2",
           "model": "srv/external/API_SUPPLIERINVOICE_PROCESS_SRV",
           "credentials": {
-            "url": "http://mygohanafun2023:8000",
-            "destination": "API_SUPPLIERINVOICE_PROCESS_SRV",
-            "path": "/sap/opu/odata/sap/API_SUPPLIERINVOICE_PROCESS_SRV/",
-            "authentication": "BasicAuthentication",
-            "forwardAuthToken": true,
-            "proxy": "sap-cloud-connectivity-proxy"
+            "destination": "HMF_2023",
+            "path": "/sap/opu/odata/sap/API_SUPPLIERINVOICE_PROCESS_SRV"
           }
         }
       },
-      "API_SUPPLIERINVOICE_PROCESS_SRV": {
-        "kind": "odata",
+      "supplierinvoiceprocess": {
+        "kind": "odata-v2",
         "model": "srv/external/API_SUPPLIERINVOICE_PROCESS_SRV",
         "credentials": {
-          "destination": "API_SUPPLIERINVOICE_PROCESS_SRV",
-          "path": "/sap/opu/odata/sap/API_SUPPLIERINVOICE_PROCESS_SRV/"
+          "destination": "HMF_2023",
+          "path": "/sap/opu/odata/sap/API_SUPPLIERINVOICE_PROCESS_SRV"
         }
       }
     }
